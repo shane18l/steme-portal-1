@@ -187,7 +187,7 @@ export default function Login() {
               maxWidth: 500,
             }}
           >
-            <Stack spacing={3} alignItems="center">
+            <Stack spacing={2} alignItems="center">
               <Box
                 component="img"
                 src="/steme.png"
