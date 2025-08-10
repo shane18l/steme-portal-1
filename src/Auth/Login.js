@@ -24,7 +24,7 @@ export default function Login() {
   const [showPopup, setShowPopup] = useState(true);
 
   // Portal preview images
-  const images = ["/steme3.png", "/steme2.png", "/steme4.png"];
+  const images = ["/steme5.png", "/steme6.png", "/steme4.png"];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -99,7 +99,7 @@ export default function Login() {
               gutterBottom
               sx={{ lineHeight: 1.2 }}
             >
-              STEME Portal supports your best learning strategies.
+              STEME Portal supports your best learning strategies
             </Typography>
             <Typography variant="body1" mb={3}>
               The STEME Portal connects students, teachers, and resources in one
@@ -108,9 +108,9 @@ export default function Login() {
 
             <List>
               {[
-                "Access all your STEME resources in one place.",
-                "Simple, powerful tools made for education.",
-                "Secure login with your school Microsoft account.",
+                "High School for Future STEM and Business Leaders",
+                "Earn OSSD Grade 9-12 Credits",
+                "Pathways to Top Universities",
               ].map((text, idx) => (
                 <ListItem key={idx} disableGutters>
                   <ListItemIcon sx={{ minWidth: 36 }}>
@@ -200,14 +200,14 @@ export default function Login() {
               />
 
               <Typography variant="h5" fontWeight="bold" align="center">
-                Sign in to STEME Portal
+                Your All-In-One Education Portal
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
                 align="center"
               >
-                Please use your school Microsoft account to sign in.
+                Sign up or log in with your Microsoft school Email: let the learning begin... 
               </Typography>
 
               {error && (

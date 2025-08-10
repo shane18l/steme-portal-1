@@ -37,9 +37,9 @@ export default function ProfilePage() {
       <Typography variant="body1" mt={1}>
         Email: {user.username}
       </Typography>
-      <Typography variant="body1">
-        Role: {role || "No role assigned"}
-      </Typography>
+<Typography variant="body1">
+  Role: {role ? role.charAt(0).toUpperCase() + role.slice(1) : "No role assigned"}
+</Typography>
     </Box>
   );
 }

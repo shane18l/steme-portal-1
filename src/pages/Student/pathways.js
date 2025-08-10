@@ -812,18 +812,20 @@ const courses = [
 ];
 
 const pathwayColors = {
-  engineering: "#953EDE",
-  "engineering-light": "#C99BEE",
+  // Engineering now uses STEME logo green
+  engineering: "#28A745", // rich green
+  "engineering-light": "#A8E5B0", // lighter matching shade
 
-  "life-health-science": "#7ACFC0",
-  "life-health-science-light": "#C9E9E1",
+  "life-health-science": "#40E0D0",
+  "life-health-science-light": "#B2F7EF",
 
   "computer-science": "#0093c8ff",
   "computer-science-light": "#aae8ffff",
 
-  business: "#e74c3c",
-  "business-light": "#f5b7b1",
+  business: "#6702b0",
+  "business-light": "#9872b3",
 };
+
 
 export default function Pathways() {
   const [activeCategory, setActiveCategory] = useState("engineering");
