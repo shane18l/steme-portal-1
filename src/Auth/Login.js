@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
+  Dialog,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -21,11 +22,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export default function Login() {
   const { instance } = useMsal();
   const [error, setError] = useState("");
-  const [showPopup, setShowPopup] = useState(true);
-
-  // Portal preview images
-  const images = ["/steme5.png", "/steme6.png", "/steme4.png"];
+  const [popupOpen, setPopupOpen] = useState(false); // For image popup
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = ["/steme5.png", "/steme6.png", "/steme4.png"];
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -57,7 +57,7 @@ export default function Login() {
       px={2}
       sx={{
         position: "relative",
-        backgroundImage: 'url("/classroom.jpg")', // background image
+        backgroundImage: 'url("/stembg.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -99,17 +99,15 @@ export default function Login() {
               gutterBottom
               sx={{ lineHeight: 1.2 }}
             >
-              STEME Portal supports your best learning strategies
-            </Typography>
-            <Typography variant="body1" mb={3}>
-              The STEME Portal connects students, teachers, and resources in one
-              place—making it easier to learn, share, and grow together.
+              <Box component="span" sx={{ color: "#22b55f" }}>STEM</Box>
+              <Box component="span" sx={{ color: "red" }}>E</Box>
+              <Box component="span" sx={{ color: "White" }}>.net</Box>
+              {" – High School for Future STEM and Business Leaders"}
             </Typography>
 
             <List>
               {[
-                "High School for Future STEM and Business Leaders",
-                "Earn OSSD Grade 9-12 Credits",
+                "OSSD Grade 9–12 Credits",
                 "Pathways to Top Universities",
               ].map((text, idx) => (
                 <ListItem key={idx} disableGutters>
@@ -151,12 +149,14 @@ export default function Login() {
               component="img"
               src={images[currentIndex]}
               alt={`Portal preview ${currentIndex + 1}`}
+              onClick={() => setPopupOpen(true)} // open popup on click
               sx={{
                 width: "100%",
                 height: "auto",
                 borderRadius: 2,
                 boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
                 transition: "opacity 0.5s ease-in-out",
+                cursor: "pointer",
               }}
             />
 
@@ -200,14 +200,15 @@ export default function Login() {
               />
 
               <Typography variant="h5" fontWeight="bold" align="center">
-                Your All-In-One Education Portal
+                Your All-in-One Education Portal
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
                 align="center"
               >
-                Sign up or log in with your Microsoft school Email: let the learning begin... 
+                Sign up or log in with your Microsoft school email: let the learning
+                begin.
               </Typography>
 
               {error && (
@@ -239,6 +240,23 @@ export default function Login() {
           </Paper>
         </Box>
       </Box>
+
+      {/* Image Popup Modal */}
+      <Dialog
+        open={popupOpen}
+        onClose={() => setPopupOpen(false)}
+        maxWidth="md"
+      >
+        <Box
+          component="img"
+          src={images[currentIndex]}
+          alt={`Enlarged preview ${currentIndex + 1}`}
+          sx={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      </Dialog>
     </Box>
   );
 }
